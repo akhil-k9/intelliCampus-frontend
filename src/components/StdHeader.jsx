@@ -11,9 +11,9 @@ const StdHeader = () => {
       <nav className="header-nav">
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/permission" className="nav-link">Permission</Link>
-        <Link to="/" className="nav-link">Notes</Link>
+        <Link to="/notes" className="nav-link">Notes</Link>
         <Link to="/ai" className="nav-link">AI Suggestions</Link>
-        <Link to="/" className="nav-link">Track Requests</Link>
+        <Link to="/track" className="nav-link">Track Requests</Link>
         <Link to="/login" className="nav-link login-btn">Login</Link>
       </nav>
     </header>

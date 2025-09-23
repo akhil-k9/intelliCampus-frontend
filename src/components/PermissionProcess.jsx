@@ -1,29 +1,47 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
+import { API_URL } from "./api"; // example: export const API_URL = "http://localhost:5000/api";
 
 const PermissionProcess = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({ name: "", reason: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [requestId, setRequestId] = useState(null);
 
-  // Simulate backend updates
-  useEffect(() => {
-    if (step === 2) {
-      setTimeout(() => {
-        setStep(3); // simulate backend approval
-      }, 3000);
-    } else if (step === 3) {
-      setTimeout(() => {
-        setStep(4); // final grant
-      }, 3000);
-    }
-  }, [step]);
-
-  const handleSubmit = (e) => {
+  // 👉 Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setStep(2); // move to step 2 (request sent)
+    setLoading(true);
+    try {
+      const res = await axios.post(`${API_URL}/request/send`, formData);
+      setRequestId(res.data.requestId); // assuming backend returns an ID
+      setStep(2); // Move to review step
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send request.");
+    }
+    setLoading(false);
   };
+
+  // 👉 Poll backend for status updates
+  useEffect(() => {
+    if (step > 1 && requestId) {
+      const interval = setInterval(async () => {
+        try {
+          const res = await axios.get(`${API_URL}/request/status/${requestId}`);
+          const status = res.data.status; // e.g. "submitted", "reviewed", "granted"
+
+          if (status === "submitted") setStep(2);
+          else if (status === "reviewed") setStep(3);
+          else if (status === "granted") setStep(4);
+        } catch (err) {
+          console.error("Error fetching status:", err);
+        }
+      }, 2000); // check every 2s
+
+      return () => clearInterval(interval);
+    }
+  }, [requestId, step]);
 
   return (
     <div className="permission-container">
@@ -31,7 +49,7 @@ const PermissionProcess = () => {
 
       {/* Stepper UI */}
       <div className="steps">
-        <div className={`step ${step >= 2 ? "completed" : ""}`}>
+        <div className={`step ${step >= 2 ? "completed" : step === 1 ? "active" : ""}`}>
           <span>1</span>
           <p>Form Submitted</p>
         </div>
@@ -61,11 +79,13 @@ const PermissionProcess = () => {
             onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
             required
           />
-          <button type="submit">Submit Request</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Submitting..." : "Submit Request"}
+          </button>
         </form>
       )}
 
-      {step === 2 && <p className="loading">⏳ Sending request for approval...</p>}
+      {step === 2 && <p className="loading">⏳ Request submitted, waiting for review...</p>}
       {step === 3 && <p className="loading">⏳ Request under review...</p>}
       {step === 4 && <p className="success">✅ Permission Granted!</p>}
     </div>

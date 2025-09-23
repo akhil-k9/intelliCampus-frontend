@@ -5,6 +5,10 @@ import StdLoginPage from './pages/StdLoginPage';
 import StdHomePage from './pages/StdHomePage';
 import StdAi from './pages/StdAi';
 import StdPermission from './pages/StdPermission';
+import RequestPage from './pages/RequestPage';
+import NotesPage from './pages/NotesPage';
+import InchargePage from './pages/InchargePage';
+import RequestTrackPage from './pages/RequestTrackPage';
 
 function App() {
   // Remove this if not used
@@ -16,7 +20,11 @@ function App() {
         <Route path="/login" element={<StdLoginPage />} />
         <Route path="/" element={<StdHomePage />} />
         <Route path="/ai" element={<StdAi/>}/>
-        <Route path="/permission" element={<StdPermission/>}/>
+        <Route path="/permission" element={<RequestPage/>}/>
+        <Route path="/requests" element={<RequestPage/>}/>
+        <Route path="/notes" element={<NotesPage/>}/>
+        <Route path="/incharge" element={<InchargePage/>}/>
+        <Route path="/track" element={<RequestTrackPage/>}/>
       </Routes>
     </BrowserRouter>
   );
