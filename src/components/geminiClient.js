@@ -7,8 +7,8 @@ import { API_URL } from "./api.js";
 
 
 
-let API_KEY = "AIzaSyCTFuBI4P1OUX1_KbhEL7DQg-1AE1OEZVA";
 
+let API_KEY;
 // If not available in .env, try backend endpoint
 if (!API_KEY) {
   try {
