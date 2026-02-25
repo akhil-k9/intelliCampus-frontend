@@ -1,12 +1,102 @@
-# React + Vite
+# 🎓 IntelliCampus — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**IntelliCampus Frontend** is a responsive and modern web application built with **React**.  
+It serves as the user interface for the IntelliCampus system — a campus management platform that provides features like student profiles, attendance tracking, course information, and more.
 
-Currently, two official plugins are available:
+This frontend is designed to work with the IntelliCampus backend API to deliver a seamless user experience for students, teachers, and administrators.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Technology   | Purpose                     |
+|--------------|-----------------------------|
+| React        | Frontend UI                 |
+| JavaScript   | Application logic           |
+| HTML & CSS   | Markup and styling          |
+| Axios        | HTTP requests               |
+| React Router | Navigation between pages    |
+| Vite / CRA   | Tooling & Development       |
+
+
+---
+
+## Live Demo
+
+Link : https://intellicampus-pi.vercel.app/
+
+---
+
+## Screenshots
+
+<p align="center">
+  <img src="Screenshot 2026-02-25 205713.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="./Screenshot 2026-02-25 205929.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="Screenshot 2026-02-25 205808.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="Screenshot 2026-02-25 210013.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="Screenshot 2026-02-25 210359.png" width="700" />
+</p>
+
+
+---
+
+## Project Structure
+
+```
+intelliCampus-frontend/
+├── public/                # Static assets
+├── src/                   # React source files
+│   ├── components/        # Reusable components
+│   ├── pages/             # Pages for routing
+│   ├── services/          # API calls & configurations
+│   ├── App.js
+│   ├── index.js
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.js
+```
+
+---
+
+## Deployment
+
+To deploy this project:
+
+1. Push to GitHub  
+2. Connect the repo to a hosting provider (e.g., Vercel or Netlify)  
+3. Set environment variables (if any)  
+4. Deploy and enjoy live previews
+
+---
+
+## 🤝 Contributing
+
+Contributions are always welcome!  
+If you find bugs or want to improve features, please open an issue or submit a pull request.
+
+---
+
+## 🙌 Credits
+
+Thanks to everyone who has contributed or given feedback.
+
+---
+
+## Author
+
+**Akhil**
+
+Happy coding! 🚀
