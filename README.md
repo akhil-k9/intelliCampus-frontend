@@ -1,4 +1,4 @@
-# 🎓 IntelliCampus — Frontend
+# IntelliCampus — Frontend
 
 **IntelliCampus Frontend** is a responsive and modern web application built with **React**.  
 It serves as the user interface for the IntelliCampus system — a campus management platform that provides features like student profiles, attendance tracking, course information, and more.
@@ -7,7 +7,7 @@ This frontend is designed to work with the IntelliCampus backend API to deliver 
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Technology   | Purpose                     |
 |--------------|-----------------------------|
@@ -99,4 +99,4 @@ Thanks to everyone who has contributed or given feedback.
 
 **Akhil**
 
-Happy coding! 🚀
+Happy coding..!
